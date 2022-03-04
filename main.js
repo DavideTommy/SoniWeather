@@ -246,13 +246,14 @@ const updateUI = () => {
   `;
 
     //updating image
-    let imgSrc = "/data/WeatherIcons/" + weather.iconNumber + ".png";
+    let imgSrc = "/Resources/WeatherIcons/" + weather.iconNumber + ".png";
     image.setAttribute("src", imgSrc);
 
     // zoom in
     const lat = ol.proj.fromLonLat([currentCity.latitude, currentCity.longitude])[1];// // -90 , 90
     const lon = ol.proj.fromLonLat([currentCity.latitude, currentCity.longitude])[0];//currentCity.longitude; // -180,180
 
+    //this code won't work, need opportune correction in system coordinates correction
     if (lon < -180 || lon > 180) {
         var Lon = Math.abs(lon + 180, 360) - 180;
     }

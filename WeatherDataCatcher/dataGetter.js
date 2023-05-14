@@ -260,7 +260,7 @@ function getCityHourForecast()
  */
 async function getCityByName()
 {
-    const locationBaseUrl = "http://dataservice.accuweather.com/locations/v1/cities/search";
+    const locationBaseUrl = "https://dataservice.accuweather.com/locations/v1/cities/search";
     const cityName = currentCity.cityName;
     const currAPIKey = getAPIKey();
     const query = `?apikey=${currAPIKey}&q=${cityName}`;
@@ -292,7 +292,7 @@ async function getCityByName()
 async function getCityByCoordinates ()
 {
     const currAPIKey = getAPIKey();
-    const locationBaseUrl = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
+    const locationBaseUrl = "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search";
     const cityCoordinates = currentCity.latitude.toString() + ',' + currentCity.longitude.toString();
     const query = `?apikey=${currAPIKey}&q=${cityCoordinates}`;
 
@@ -325,7 +325,7 @@ async function gettingWeatherDetails()
     //if city is not present
     if (!(currentCity.cityCode in citiesForecast))
     {
-        const weatherBaseUrl = "http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/";
+        const weatherBaseUrl = "https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/";
         const query = `${currentCity.cityCode}?apikey=${currAPIKey}`;
         const details = "&details=true"; //needed for get full datas
 

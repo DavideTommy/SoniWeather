@@ -67,7 +67,7 @@ function init() {
 
     const openStreetMapHumanitarian = new ol.layer.Tile({
         source: new ol.source.OSM({
-            url: 'http://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
+            url: 'https://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
         }),
         visible: false,
         title: 'OSMHumanitarian'
@@ -75,8 +75,8 @@ function init() {
 
     const stamenTerrain = new ol.layer.Tile({
         source: new ol.source.XYZ({
-            url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
-            attributions: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+            url: 'https://tile.stamen.com/terrain/{z}/{x}/{y}.jpg',
+            attributions: 'Map tiles by <a href="https://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
         }),
         visible: false,
         title: 'StamenTerrain'
@@ -183,12 +183,12 @@ function init() {
 const getMapCoordOnClick = (evt) => {
     console.log("getMapCoordOnClick invoked");
     //tuple of coordinates
-    const lonlat = ol.proj.toLonLat(evt.coordinate);
+    const lonLat = ol.proj.toLonLat(evt.coordinate);
     //prepare clean ambient
     cleanCurrentCity();
 
-    currentCity.longitude = lonlat[0];
-    currentCity.latitude = lonlat[1];
+    currentCity.longitude = lonLat[0];
+    currentCity.latitude = lonLat[1];
 
     // doing the query to get forecast (or load it in current city)
     // Also only represent the city name on the console, can't print it and call it now; It's the problem of async and cannot get the OBJECT correctly
@@ -227,7 +227,7 @@ function playSound()
  */
 const updateUI = () => {
     weather = getCityHourForecast();
-    //console.log(weather);
+    console.log(weather);
 
     //updating details into HTML
     textContent.innerHTML = `

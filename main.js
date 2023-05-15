@@ -9,7 +9,7 @@
 const APIKeys = ['G2RHDSZWOO0lHDHSSf339l9MeaEip0VW' , 'a39nt3GG9ZNiFsNmXADD0n4KWPSrlIhf'/*, 'rVlJUvfhFOVCS0J49iwPUGgUcGMAIX0z'*/];
 
 // URL of the TILE SERVER
-const url_carto_cdn = 'http://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
+const url_carto_cdn = 'https://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
 
 const textContent = document.getElementById("content");
 const search = document.getElementById("searchUser");
@@ -47,7 +47,8 @@ var myview = new ol.View({
     })
 
 window.onload = init(); // Call init() when we open the window
-function init() {
+function init()
+{
     const map = new ol.Map({
         target: 'map',
         layers: [
@@ -168,8 +169,6 @@ function init() {
                 }
             })
     })
-
-
     // Create a click event to call getMapCoordOnClick()
     map.on("click", (e) => getMapCoordOnClick(e));
 
